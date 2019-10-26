@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import './styles.css';
 import Header from './header';
 import useSearch from 'common/hooks/use-search';
+import ProcessCardList from './process-card-list';
+import ProcessDetails from './process-details';
 
 function ProcessList({ match, history }) {
   const [searchValue, handleSearchChange, handleSearchSubmit] = useSearch(
@@ -17,7 +19,10 @@ function ProcessList({ match, history }) {
         onChangeSearch={handleSearchChange}
         onSubmitSearch={handleSearchSubmit}
       />
-      {match.params.term}
+      <main className="process-list-content">
+        <ProcessCardList />
+        <ProcessDetails />
+      </main>
     </div>
   );
 }

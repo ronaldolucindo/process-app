@@ -1,0 +1,34 @@
+.process-card {
+  margin: 24px 0;
+}
+.process-card .process-card-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.process-card .process-image {
+  max-width: 100px;
+}
+
+.process-card .column-title {
+  font-weight: bold;
+  color: var(--secondary);
+}
+
+@media (max-width: 576px) {
+  .process-card .process-card-content {
+    flex-direction: column;
+  }
+
+  .process-card .column-title {
+    margin: 4px 0 0 0;
+  }
+  .process-card .column-text {
+    margin: 0;
+  }
+
+  .process-card .process-image {
+    margin: 16px 0;
+    align-self: center;
+  }
+}

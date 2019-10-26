@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 
 import './styles.css';
 import SearchInput from 'components/search-input';
@@ -14,9 +15,9 @@ function Header({ searchValue, onChangeSearch, onSubmitSearch }) {
           onChange={onChangeSearch}
           onSubmit={onSubmitSearch}
         />
-        <button className="btn btn-outline-secondary new-process-btn">
+        <Button variant="outlined" className="new-process-btn">
           Novo
-        </button>
+        </Button>
       </div>
     </header>
   );

@@ -18,7 +18,10 @@
 .process-list-header .new-process-btn {
   height: 40px;
   font-size: 14px;
+  font-weight: bold;
   text-transform: uppercase;
+  padding: 8px 16px;
+  cursor: pointer;
   margin-left: 16px;
   border: solid 1px var(--secondary-light);
   border-radius: 0;
