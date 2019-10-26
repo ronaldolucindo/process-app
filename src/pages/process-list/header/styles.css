@@ -1,0 +1,36 @@
+.process-list-header {
+  display: flex;
+  max-width: 700px;
+  align-items: center;
+}
+
+.process-list-header h1 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: normal;
+}
+
+.process-list-header .input-container {
+  width: 100%;
+  display: flex;
+}
+
+.process-list-header .new-process-btn {
+  height: 40px;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-left: 16px;
+  border: solid 1px var(--secondary-light);
+  border-radius: 0;
+}
+
+@media (max-width: 576px) {
+  .process-list-header {
+    padding: 8px 16px;
+    flex-wrap: wrap;
+  }
+
+  .process-list-header .input-container {
+    margin: 16px 0;
+  }
+}
