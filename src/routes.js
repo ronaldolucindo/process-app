@@ -9,8 +9,16 @@ function Routes(props) {
     <Suspense fallback={null}>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={() => <SearchProcess />} />
-          <Route exact path="/search/:term" component={() => <ProcessList />} />
+          <Route
+            exact
+            path="/"
+            component={props => <SearchProcess {...props} />}
+          />
+          <Route
+            exact
+            path="/search/:term"
+            component={props => <ProcessList {...props} />}
+          />
         </Switch>
       </BrowserRouter>
     </Suspense>

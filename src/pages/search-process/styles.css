@@ -1,0 +1,26 @@
+.search-process-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-process-container .main-content {
+  width: 100%;
+  max-width: 450px;
+}
+
+.search-process-container h1 {
+  font-size: 20px;
+  font-weight: normal;
+  text-align: center;
+  color: var(--primary);
+  margin: 16px 0;
+}
+
+.search-process-container p {
+  color: var(--secondary-light);
+  text-align: center;
+  margin: 48px 0 0 0;
+}

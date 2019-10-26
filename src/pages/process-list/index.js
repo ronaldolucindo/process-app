@@ -4,7 +4,10 @@ import './styles.css';
 
 function ProcessList(props) {
 
-    return (<div>b</div>)
+    return (<div>
+          {props.match.params.term}
+
+    </div>)
 }
 
 export default ProcessList;
