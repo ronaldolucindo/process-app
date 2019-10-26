@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import IconButton from '@material-ui/core/IconButton';
+import SearchIcon from '@material-ui/icons/Search';
 
 import './styles.css';
-import searchIcon from 'assets/search-icon.svg';
 
 function SearchInput({ value, onChange, onSubmit }) {
   return (
@@ -14,9 +15,9 @@ function SearchInput({ value, onChange, onSubmit }) {
         value={value}
         onChange={onChange}
       />
-      <button>
-        <img src={searchIcon} alt="" />
-      </button>
+      <IconButton type="submit" className="search-button" aria-label="search">
+        <SearchIcon className="search-icon" />
+      </IconButton>
     </form>
   );
 }

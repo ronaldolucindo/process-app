@@ -1,8 +1,11 @@
 .search-input-container {
   width: 100%;
+  min-width: 200px;
+  height: 40px;
   display: flex;
   border: solid 1px var(--secondary-light);
   color: var(--secondary-light);
+  background: #fff;
 }
 
 .search-input-container input {
@@ -12,7 +15,15 @@
   border: none;
 }
 
-.search-input-container button {
+.search-input-container .search-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: transparent;
   border: none;
+}
+
+.search-input-container .search-icon {
+  width: 18px;
+  height: 18px;
 }
