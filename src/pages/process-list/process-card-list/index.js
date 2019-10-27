@@ -4,28 +4,30 @@ import ProcessCard from '../process-card';
 
 import './styles.css';
 
-function ProcessCardList({ match, history }) {
+function ProcessCardList(props) {
+  const { match, history, processList, onSelectCard } = props;
   return (
     <div className="process-card-list">
-      <ProcessCard
-        number="212"
-        subject="assa"
-        people="sasas"
-        description="asdasdasd"
-      />
-      <ProcessCard
-        number="212"
-        subject="assa"
-        people="sasas"
-        description="asdasdasd"
-      />
+      {(processList || []).map(item => (
+        <ProcessCard
+          key={item.id}
+          id={item.id}
+          number={item.numero}
+          subject={item.assunto}
+          people={item.interessados}
+          description={item.descricao}
+          onClick={onSelectCard}
+        />
+      ))}
     </div>
   );
 }
 
 ProcessCardList.propTypes = {
   match: PropTypes.object,
-  history: PropTypes.object
+  history: PropTypes.object,
+  processList: PropTypes.array,
+  onSelectCard: PropTypes.func
 };
 
 export default ProcessCardList;

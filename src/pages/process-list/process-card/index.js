@@ -7,7 +7,7 @@ import imagePlaceholder from 'assets/image-placeholder.png';
 import './styles.css';
 
 function ProcessCard(props) {
-  const { number, subject, people, description } = props;
+  const { id, number, subject, people, description } = props;
   return (
     <Card className="process-card">
       <CardContent className="process-card-content">
@@ -22,7 +22,7 @@ function ProcessCard(props) {
         </div>
         <div className="card-column">
           <p className="column-title">Interessados</p>
-          <p className="column-text">{people}</p>
+          {people && <p className="column-text">{people[0]}</p>}
         </div>
         <div className="card-column">
           <p className="column-title">Descrição</p>
@@ -34,6 +34,7 @@ function ProcessCard(props) {
 }
 
 ProcessCard.propTypes = {
+  id: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
   subject: PropTypes.string.isRequired,
   people: PropTypes.array.isRequired,
