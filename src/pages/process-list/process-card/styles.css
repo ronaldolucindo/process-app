@@ -1,12 +1,23 @@
 .process-card {
   margin: 24px 0;
   cursor: pointer;
-  border: solid 1px var(--secondary-light);
+  border: solid 2px var(--secondary-light);
   border-radius: 0;
+}
+.process-card--active {
+  border: solid 2px var(--primary);
+  color: var(--primary);
+}
+.process-card--active p.column-title {
+  color: var(--primary);
+}
+.process-card:hover {
+  border: solid 2px var(--primary);
 }
 .process-card .process-card-content {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .process-card .card-column {
@@ -28,6 +39,10 @@
 @media (max-width: 576px) {
   .process-card .process-card-content {
     flex-direction: column;
+  }
+  .process-card .card-column {
+    width: 100%;
+    max-width: auto;
   }
 
   .process-card .column-title {

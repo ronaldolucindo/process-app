@@ -7,9 +7,14 @@ import imagePlaceholder from 'assets/image-placeholder.png';
 import './styles.css';
 
 function ProcessCard(props) {
-  const { id, number, subject, people, description } = props;
+  const { id, number, subject, people, description, activeProcess } = props;
+  const isActiveProcess = activeProcess === id;
   return (
-    <Card className="process-card">
+    <Card
+      className={`process-card ${
+        isActiveProcess ? 'process-card--active' : ''
+      }`}
+    >
       <CardContent className="process-card-content">
         <img className="process-image" src={imagePlaceholder} alt={number} />
         <div className="card-column">
@@ -38,7 +43,8 @@ ProcessCard.propTypes = {
   number: PropTypes.string.isRequired,
   subject: PropTypes.string.isRequired,
   people: PropTypes.array.isRequired,
-  description: PropTypes.string.isRequired
+  description: PropTypes.string.isRequired,
+  activeProcess: PropTypes.string
 };
 
 export default ProcessCard;

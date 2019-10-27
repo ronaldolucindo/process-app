@@ -3,6 +3,12 @@
   padding: 16px 32px;
 }
 
+.process-list-container .process-list-content{
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
 .process-list-container .loading-container {
   position: absolute;
   top: 50%;
