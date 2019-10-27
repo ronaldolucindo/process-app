@@ -1,13 +1,23 @@
 .process-card {
   margin: 24px 0;
+  cursor: pointer;
+  border: solid 1px var(--secondary-light);
+  border-radius: 0;
 }
 .process-card .process-card-content {
   display: flex;
   justify-content: space-between;
 }
 
+.process-card .card-column {
+  max-width: 200px;
+  max-height: 90px;
+  overflow: hidden;
+}
+
 .process-card .process-image {
   max-width: 100px;
+  max-height: 100px;
 }
 
 .process-card .column-title {
