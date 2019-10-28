@@ -59,6 +59,9 @@ function ProcessList({ match, history }) {
     processList.actions.getProcessList(match.params.term);
     setShowDetails(false);
   };
+  const handleEditProcess = async params => {
+    await processDetails.actions.editProcess(params);
+  };
 
   return (
     <div className="process-list-container">
@@ -97,6 +100,7 @@ function ProcessList({ match, history }) {
                   onClose={handleCloseDetails}
                   processData={processDetails.state}
                   onRemove={handleRemoveProcess}
+                  onEdit={handleEditProcess}
                 />
               )}
             </>

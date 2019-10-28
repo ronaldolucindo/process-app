@@ -12,13 +12,14 @@ import TextField from '@material-ui/core/TextField';
 import './styles.css';
 import PeopleInput from './people-input';
 
-function ProcessModal({ open, onClose, onSave, data, setData }) {
+function ProcessModal(props) {
+  const { open, onClose, onSave, data, setData, edit } = props;
   const handleSubmit = async e => {
     e.preventDefault();
     await onSave(data);
     onClose();
   };
-  const renderTitle = data ? 'Editar processo' : 'Cadastro de processo';
+  const renderTitle = edit ? 'Editar processo' : 'Cadastro de processo';
 
   const handleInputChange = e => {
     const input = e.target;
@@ -48,7 +49,7 @@ function ProcessModal({ open, onClose, onSave, data, setData }) {
             margin="dense"
             id="process"
             name="numero"
-            value={data.processo}
+            value={data.numero}
             onChange={handleInputChange}
             label="Processo"
             type="text"
@@ -83,7 +84,6 @@ function ProcessModal({ open, onClose, onSave, data, setData }) {
         <DialogActions>
           <Button
             type="submit"
-            // onClick={handleSaveClick}
             variant="contained"
             color="primary"
             autoFocus
@@ -96,12 +96,17 @@ function ProcessModal({ open, onClose, onSave, data, setData }) {
   );
 }
 
+ProcessModal.defaultProps = {
+  edit: false
+};
+
 ProcessModal.propTypes = {
   open: PropTypes.bool,
   onClose: PropTypes.func,
   onSave: PropTypes.func,
   data: PropTypes.object,
-  setData: PropTypes.func
+  setData: PropTypes.func,
+  edit: PropTypes.bool
 };
 
 export default ProcessModal;

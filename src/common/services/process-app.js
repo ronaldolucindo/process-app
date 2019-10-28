@@ -10,7 +10,7 @@ function addNewProcess(params) {
 }
 
 function editProcess(params) {
-  return processApp.post(`/processo/${params.id}`, { ...params });
+  return processApp.put(`/processo/${params.id}`, { ...params });
 }
 
 function deleteProcess(id) {

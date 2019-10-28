@@ -53,10 +53,32 @@ function useProcessDetails() {
       }));
     }
   }
+  async function editProcess(params) {
+    try {
+      setState(prevState => ({ ...prevState, fetching: true, error: false }));
+      const response = await ProcessAppService.editProcess(params);
+      setState(prevState => ({
+        ...prevState,
+        fetching: false,
+        fetched: true,
+        data: { ...response.data }
+      }));
+    } catch (e) {
+      if (!e || (e && e.__CANCEL__)) return;
+      console.error(e);
+      setState(prevState => ({
+        ...prevState,
+        fetching: false,
+        fetched: true,
+        error: true
+      }));
+    }
+  }
 
   const actions = {
     getProcessDetails,
-    deleteProcess
+    deleteProcess,
+    editProcess
   };
 
   return {

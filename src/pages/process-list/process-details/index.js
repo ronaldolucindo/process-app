@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { formatDate } from 'common/utils';
+import useProcess from 'common/stores/process';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
@@ -9,15 +10,27 @@ import Button from '@material-ui/core/Button';
 import RemoveModal from '../remove-modal';
 
 import './styles.css';
+import ProcessModal from 'components/process-modal';
 
 function ProcessDetails(props) {
   const { match, history, processData, onClose, onRemove, onEdit } = props;
-  const [openModal, setOpenModal] = useState(false);
-  const handleOpenModal = () => {
-    setOpenModal(true);
+  const process = useProcess();
+
+  const [openRemoveModal, setOpenRemoveModal] = useState(false);
+  const [openEditModal, setOpenEditModal] = useState(false);
+
+  const handleOpenRemoveModal = () => {
+    setOpenRemoveModal(true);
   };
-  const handleCloseModal = () => {
-    setOpenModal(false);
+  const handleOpenEditModal = async () => {
+    await process.actions.setProcessData(processData.data);
+    setOpenEditModal(true);
+  };
+  const handleCloseRemoveModal = () => {
+    setOpenRemoveModal(false);
+  };
+  const handleCloseEditModal = () => {
+    setOpenEditModal(false);
   };
 
   return (
@@ -72,20 +85,32 @@ function ProcessDetails(props) {
           <div className="process-details-footer">
             <Button
               variant="outlined"
-              onClick={handleOpenModal}
-              onClose={handleCloseModal}
+              onClick={handleOpenRemoveModal}
+              onClose={handleCloseRemoveModal}
             >
               Remover
             </Button>
-            <Button variant="outlined" color="primary">
+            <Button
+              variant="outlined"
+              color="primary"
+              onClick={handleOpenEditModal}
+            >
               Editar
             </Button>
           </div>
           <RemoveModal
             id={processData.data.id}
-            open={openModal}
-            onClose={handleCloseModal}
+            open={openRemoveModal}
+            onClose={handleCloseRemoveModal}
             onConfirm={onRemove}
+          />
+          <ProcessModal
+            open={openEditModal}
+            onClose={handleCloseEditModal}
+            onSave={onEdit}
+            data={process.state.data}
+            setData={process.actions.setProcessData}
+            edit
           />
         </>
       )}
@@ -98,7 +123,8 @@ ProcessDetails.propTypes = {
   history: PropTypes.object,
   processData: PropTypes.object,
   onClose: PropTypes.func,
-  onRemove: PropTypes.func
+  onRemove: PropTypes.func,
+  onEdit: PropTypes.func
 };
 
 export default ProcessDetails;
