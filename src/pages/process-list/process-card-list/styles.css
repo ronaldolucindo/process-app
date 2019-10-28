@@ -3,3 +3,8 @@
   max-height: 80vh;
   overflow-y: scroll;
 }
+@media (max-width: 767px) {
+  .process-card-list.details--active {
+    display: none;
+  }
+}

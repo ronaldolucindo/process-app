@@ -65,6 +65,7 @@ function ProcessList({ match, history }) {
                 onSelectCard={handleCardClick}
                 activeProcess={selectedProcess}
                 processList={processList.state.data}
+                showDetails={showDetails}
               />
               {selectedProcess && showDetails && (
                 <ProcessDetails

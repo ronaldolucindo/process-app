@@ -5,9 +5,18 @@ import ProcessCard from '../process-card';
 import './styles.css';
 
 function ProcessCardList(props) {
-  const { match, history, processList, onSelectCard, activeProcess } = props;
+  const {
+    match,
+    history,
+    processList,
+    onSelectCard,
+    activeProcess,
+    showDetails
+  } = props;
   return (
-    <div className="process-card-list">
+    <div
+      className={`process-card-list ${showDetails ? 'details--active' : ''}`}
+    >
       {(processList || []).map(item => (
         <div onClick={() => onSelectCard(item.id)} key={item.id}>
           <ProcessCard
@@ -29,7 +38,8 @@ ProcessCardList.propTypes = {
   history: PropTypes.object,
   processList: PropTypes.array,
   onSelectCard: PropTypes.func,
-  activeProcess: PropTypes.string
+  activeProcess: PropTypes.string,
+  showDetails: PropTypes.bool
 };
 
 export default ProcessCardList;
