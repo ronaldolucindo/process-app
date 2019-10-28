@@ -17,7 +17,6 @@ function ProcessCardList(props) {
             people={item.interessados}
             description={item.descricao}
             activeProcess={activeProcess}
-            // onClick={onSelectCard}
           />
         </div>
       ))}

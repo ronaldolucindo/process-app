@@ -38,6 +38,11 @@ function ProcessList({ match, history }) {
   const handleCloseDetails = () => {
     setShowDetails(false);
   };
+  const handleRemoveProcess = async (id) => {
+    await processDetails.actions.deleteProcess(id)
+    processList.actions.getProcessList(match.params.term);
+    setShowDetails(false);
+  };
 
   return (
     <div className="process-list-container">
@@ -66,6 +71,7 @@ function ProcessList({ match, history }) {
                   showDetails={showDetails}
                   onClose={handleCloseDetails}
                   processData={processDetails.state}
+                  onRemove={handleRemoveProcess}
                 />
               )}
             </>

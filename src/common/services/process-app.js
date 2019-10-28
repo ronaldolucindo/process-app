@@ -14,7 +14,7 @@ function editProcess(params) {
 }
 
 function deleteProcess(id) {
-  return processApp.deleteProcess(`/processo/${id}`, { id });
+  return processApp.delete(`/processo/${id}`, { id });
 }
 
 function getProcess(id) {
