@@ -1,0 +1,9 @@
+.process-modal {
+  position: relative;
+}
+
+.process-modal .close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}

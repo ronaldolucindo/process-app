@@ -1,0 +1,4 @@
+.people-input-container .add-person-container {
+  display: flex;
+  align-items: center;
+}

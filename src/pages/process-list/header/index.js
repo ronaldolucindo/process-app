@@ -5,7 +5,8 @@ import Button from '@material-ui/core/Button';
 import './styles.css';
 import SearchInput from 'components/search-input';
 
-function Header({ searchValue, onChangeSearch, onSubmitSearch }) {
+function Header(props) {
+  const { searchValue, onChangeSearch, onSubmitSearch, onAddProcess } = props;
   return (
     <header className="process-list-header">
       <h1>Busca de processos</h1>
@@ -15,7 +16,7 @@ function Header({ searchValue, onChangeSearch, onSubmitSearch }) {
           onChange={onChangeSearch}
           onSubmit={onSubmitSearch}
         />
-        <Button variant="outlined" className="new-process-btn">
+        <Button variant="outlined" className="new-process-btn" onClick={onAddProcess}>
           Novo
         </Button>
       </div>
@@ -26,7 +27,8 @@ function Header({ searchValue, onChangeSearch, onSubmitSearch }) {
 Header.propTypes = {
   searchValue: PropTypes.string,
   onChangeSearch: PropTypes.func,
-  onSubmitSearch: PropTypes.func
+  onSubmitSearch: PropTypes.func,
+  onAddProcess: PropTypes.func
 };
 
 export default Header;
