@@ -9,9 +9,16 @@
 
 .process-details-container .process-details-header {
   width: 100%;
-  flex-wrap: wrap;
   display: flex;
   justify-content: space-between;
+}
+
+.process-details-container .process-details-header-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+.process-details-container .process-details-header-info .process-details-text {
+  font-size: 16px;
 }
 
 .process-details-container .process-details-col {
@@ -20,6 +27,12 @@
 
 .process-details-container .process-details-subject {
   width: 100%;
+}
+.process-details-container .process-people {
+  display: inline-block;
+}
+.process-details-container .process-people:not(:last-of-type) {
+  margin-right: 48px;
 }
 
 .process-details-container .process-details-img {

@@ -55,6 +55,7 @@ function ProcessDetails(props) {
               src={imagePlaceholder}
               alt={processData.data.numero}
             />
+            <div className="process-details-header-info">
             <div className="process-details-col">
               <p className="process-details-title">Processo</p>
               <p className="process-details-text">{processData.data.numero}</p>
@@ -69,12 +70,13 @@ function ProcessDetails(props) {
               <p className="process-details-title">Assunto</p>
               <p className="process-details-text">{processData.data.assunto}</p>
             </div>
+            </div>
           </div>
           <div className="process-details-col">
             <p className="process-details-title">Interessados</p>
             <p className="process-details-text">
               {(processData.data.interessados || []).map((item, index) => (
-                <span key={index}>{item} </span>
+                <span className="process-people" key={index}>{item}</span>
               ))}
             </p>
           </div>
