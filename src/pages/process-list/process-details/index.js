@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { formatDate } from 'common/utils';
 import useProcess from 'common/stores/process';
@@ -13,7 +13,7 @@ import './styles.css';
 import ProcessModal from 'components/process-modal';
 
 function ProcessDetails(props) {
-  const { match, history, processData, onClose, onRemove, onEdit } = props;
+  const { processData, onClose, onRemove, onEdit } = props;
   const process = useProcess();
 
   const [openRemoveModal, setOpenRemoveModal] = useState(false);
@@ -56,27 +56,33 @@ function ProcessDetails(props) {
               alt={processData.data.numero}
             />
             <div className="process-details-header-info">
-            <div className="process-details-col">
-              <p className="process-details-title">Processo</p>
-              <p className="process-details-text">{processData.data.numero}</p>
-            </div>
-            <div className="process-details-col">
-              <p className="process-details-title">Data</p>
-              <p className="process-details-text">
-                {formatDate(processData.data.entrada)}
-              </p>
-            </div>
-            <div className="process-details-subject">
-              <p className="process-details-title">Assunto</p>
-              <p className="process-details-text">{processData.data.assunto}</p>
-            </div>
+              <div className="process-details-col">
+                <p className="process-details-title">Processo</p>
+                <p className="process-details-text">
+                  {processData.data.numero}
+                </p>
+              </div>
+              <div className="process-details-col">
+                <p className="process-details-title">Data</p>
+                <p className="process-details-text">
+                  {formatDate(processData.data.entrada)}
+                </p>
+              </div>
+              <div className="process-details-subject">
+                <p className="process-details-title">Assunto</p>
+                <p className="process-details-text">
+                  {processData.data.assunto}
+                </p>
+              </div>
             </div>
           </div>
           <div className="process-details-col">
             <p className="process-details-title">Interessados</p>
             <p className="process-details-text">
               {(processData.data.interessados || []).map((item, index) => (
-                <span className="process-people" key={index}>{item}</span>
+                <span className="process-people" key={index}>
+                  {item}
+                </span>
               ))}
             </p>
           </div>
@@ -121,8 +127,6 @@ function ProcessDetails(props) {
 }
 
 ProcessDetails.propTypes = {
-  match: PropTypes.object,
-  history: PropTypes.object,
   processData: PropTypes.object,
   onClose: PropTypes.func,
   onRemove: PropTypes.func,
